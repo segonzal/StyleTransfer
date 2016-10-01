@@ -4,7 +4,13 @@ Python 2.7 (Theano, Lasagne) implementation of “A Neural Algorithm of Artistic
 
 This is a class project for CC5204 Búsqueda por Contenido de Imágenes y Videos (Content-Based Image and Video Retrieval).
 
-# Requirements
+## How to use
+
+## Gallery
+
+![alt text](https://github.com/segonzal/StyleTransfer/raw/master/docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg "Tuebingen/Starry Night")
+
+## Requirements
 
 Some of the following dependencies are requirements of other libraries and pip will automatically install them.
 
@@ -14,18 +20,18 @@ Some of the following dependencies are requirements of other libraries and pip w
 * Numpy
 * Scikit and Scikit-image
 
-# Step by step installation of Theano on Python 2.7 on Windows
+## Step by step installation of Theano on Python 2.7 on Windows
 
 These are the steps to install Theano on Windows with Python 2.7. Currently you can't install CUDA on Python 3.5 but it is possible over Python 3.4.
 
-* Install Visual Studio Community 2013, 2015 won't work as of now.
+* Install Visual Studio Community 2013 (2015 won't work as of now)
 * Install CUDA
 * Install Anaconda 2.7 (Or miniconda)
 * `conda update conda`
 * `conda update --all`
 * `conda install mingw libpython`
 * `pip install theano`
-* Create a .theanorc in home (Your C:\Users\username]) with:
+* Create a .theanorc in home (Your C:\Users\username) with:
 	```
 	[global]
 	floatX = float32
