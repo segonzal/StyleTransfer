@@ -18,9 +18,9 @@ from time import clock
 from datetime import timedelta
 
 CONTENT_IMAGE = "sample_images/Tuebingen_Neckarfront.jpg"
-STYLE_IMAGE = "sample_images/vangogh.jpg"
+STYLE_IMAGE = "sample_images/mondrian.jpg"
 
-OUT_IMAGE = str(uuid.uuid4()) + '.jpg'
+OUT_IMAGE = "docs/"+str(uuid.uuid4()) + '.jpg'
 
 VGG_MODEL = 'vgg19_normalized.pkl'
 

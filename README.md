@@ -2,14 +2,12 @@
 
 Python 2.7 (Theano, Lasagne) implementation of “A Neural Algorithm of Artistic Style” by Leon A. Gatys, Alexander S. Ecker, Matthias Bethge.
 
-This is a class project for CC5204 Búsqueda por Contenido de Imágenes y Videos (Content-Based Image and Video Retrieval).
+This is a class project for CC5204 Búsqueda por Contenido de Imágenes y Videos (Content-Based Image and Video Retrieval). The porpouse of this work is to be introduced on concepts of Neural Networks on a practical manner.
 
 ## How to use
 
 ## Gallery
 
-![alt text](https://github.com/segonzal/StyleTransfer/raw/master/docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg "Tuebingen/Starry Night")
-![alt text](https://github.com/segonzal/StyleTransfer/raw/master/docs/c4447ae5-debc-4922-bf9a-29934cf9bfb9.jpg "Tuebingen/Seurat")
 
 ## Requirements
 
@@ -45,3 +43,10 @@ These are the steps to install Theano on Windows with Python 2.7. Currently you 
 	Make sure to set ***flags*** `C:\Anaconda\libs` as your Anaconda install directory and ***compiler_bindir*** to the path of Visual Studio with `cl.exe` on it.
 * `pip install pipwin`
 * `pipwin install pycuda`
+
+## Other
+
+Based on:
+
+* [TensorFlow Implementation of "A Neural Algorithm of Artistic Style"](http://www.chioka.in/tensorflow-implementation-neural-algorithm-of-artistic-style#)
+* [Art Style Transfer.ipynb](https://github.com/Lasagne/Recipes/blob/master/examples/styletransfer/Art%20Style%20Transfer.ipynb)
