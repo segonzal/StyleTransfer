@@ -8,6 +8,9 @@ This is a class project for CC5204 Búsqueda por Contenido de Imágenes y Videos
 
 ## Gallery
 
+![alt text](https://github.com/segonzal/StyleTransfer/raw/master/docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg=128x "Tuebingen/Starry Night")
+![alt text](https://github.com/segonzal/StyleTransfer/raw/master/docs/c4447ae5-debc-4922-bf9a-29934cf9bfb9.jpg=128x "Tuebingen/Seurat")
+![alt text](https://github.com/segonzal/StyleTransfer/raw/master/docs/c6385fff-bcc7-4a06-a0b7-c343e9025941.jpg=128x "Tuebingen/Mondrian")
 
 ## Requirements
 
