@@ -12,8 +12,6 @@ You need to download the normalized pretrained weights of the VGG19 network
 * [Lasagne](https://s3.amazonaws.com/lasagne/recipes/pretrained/imagenet/vgg19_normalized.pkl)
 * [Original source](https://bethgelab.org/deepneuralart/)
 
-!wget https://s3.amazonaws.com/lasagne/recipes/pretrained/imagenet/vgg19_normalized.pkl
-
 ## Gallery
 
 <img src="docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg" height="256" alt="Tuebingen/Starry Night">
