@@ -8,15 +8,19 @@ This project aims to serve as an introduction to Neural Networks.
 
 ## How to use
 
-You need to download the normalized pretrained weights of the VGG19 network
+You need to download the normalized pretrained weights of the VGG19 network:
 * [Lasagne](https://s3.amazonaws.com/lasagne/recipes/pretrained/imagenet/vgg19_normalized.pkl)
 * [Original source](https://bethgelab.org/deepneuralart/)
 
 ## Gallery
 
-<img src="docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg" height="256" alt="Tuebingen/Starry Night">
+These images were processed by the `style_transfer.py` script. It took around 20 minutes for each image on a NVIDIA GeForce 940M running on Windows.
+
+<img src="docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg" height="256" alt="Tuebingen/VanGogh">
 <img src="docs/c4447ae5-debc-4922-bf9a-29934cf9bfb9.jpg" height="256" alt="Tuebingen/Seurat">
-<img src="docs/c6385fff-bcc7-4a06-a0b7-c343e9025941.jpg " height="256" alt="Tuebingen/Mondrian">
+<img src="docs/c6385fff-bcc7-4a06-a0b7-c343e9025941.jpg" height="256" alt="Tuebingen/Mondrian">
+
+<img src="docs/31b9a95a-87a5-452d-9900-98360e9dfba1.jpg" height="256" alt="Cat/Mondrian">
 
 ## Requirements
 
@@ -52,6 +56,8 @@ These are the steps to install Theano on Windows with Python 2.7. Currently you 
 	Make sure to set ***flags*** `C:\Anaconda\libs` as your Anaconda install directory and ***compiler_bindir*** to the path of Visual Studio with `cl.exe` on it.
 * `pip install pipwin`
 * `pipwin install pycuda`
+* Install [cuDNN](https://developer.nvidia.com/cudnn) from NVIDIA.
+* `pip install lasagne`
 
 ## Other
 
