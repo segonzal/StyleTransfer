@@ -16,9 +16,9 @@ You need to download the normalized pretrained weights of the VGG19 network
 
 ## Gallery
 
-![alt text](https://raw.githubusercontent.com/segonzal/StyleTransfer/master/docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg=128x "Tuebingen/Starry Night")
-![alt text](https://raw.githubusercontent.com/segonzal/StyleTransfer/master/docs/c4447ae5-debc-4922-bf9a-29934cf9bfb9.jpg=128x "Tuebingen/Seurat")
-![alt text](https://raw.githubusercontent.com/segonzal/StyleTransfer/master/docs/c6385fff-bcc7-4a06-a0b7-c343e9025941.jpg=128x "Tuebingen/Mondrian")
+<img src="docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg" height="256" alt="Tuebingen/Starry Night">
+<img src="docs/c4447ae5-debc-4922-bf9a-29934cf9bfb9.jpg" height="256" alt="Tuebingen/Seurat">
+<img src="docs/c6385fff-bcc7-4a06-a0b7-c343e9025941.jpg " height="256" alt="Tuebingen/Mondrian">
 
 ## Requirements
 
