@@ -2,15 +2,23 @@
 
 Python 2.7 (Theano, Lasagne) implementation of “A Neural Algorithm of Artistic Style” by Leon A. Gatys, Alexander S. Ecker, Matthias Bethge.
 
-This is a class project for CC5204 Búsqueda por Contenido de Imágenes y Videos (Content-Based Image and Video Retrieval). The porpouse of this work is to be introduced on concepts of Neural Networks on a practical manner.
+This is a class project for CC5204 Búsqueda por Contenido de Imágenes y Videos (Content-Based Image and Video Retrieval).
+
+This project aims to serve as an introduction to Neural Networks.
 
 ## How to use
 
+You need to download the normalized pretrained weights of the VGG19 network
+* [Lasagne](https://s3.amazonaws.com/lasagne/recipes/pretrained/imagenet/vgg19_normalized.pkl)
+* [Original source](https://bethgelab.org/deepneuralart/)
+
+!wget https://s3.amazonaws.com/lasagne/recipes/pretrained/imagenet/vgg19_normalized.pkl
+
 ## Gallery
 
-![alt text](https://github.com/segonzal/StyleTransfer/raw/master/docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg=128x "Tuebingen/Starry Night")
-![alt text](https://github.com/segonzal/StyleTransfer/raw/master/docs/c4447ae5-debc-4922-bf9a-29934cf9bfb9.jpg=128x "Tuebingen/Seurat")
-![alt text](https://github.com/segonzal/StyleTransfer/raw/master/docs/c6385fff-bcc7-4a06-a0b7-c343e9025941.jpg=128x "Tuebingen/Mondrian")
+![alt text](https://raw.githubusercontent.com/segonzal/StyleTransfer/master/docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg=128x "Tuebingen/Starry Night")
+![alt text](https://raw.githubusercontent.com/segonzal/StyleTransfer/master/docs/c4447ae5-debc-4922-bf9a-29934cf9bfb9.jpg=128x "Tuebingen/Seurat")
+![alt text](https://raw.githubusercontent.com/segonzal/StyleTransfer/master/docs/c6385fff-bcc7-4a06-a0b7-c343e9025941.jpg=128x "Tuebingen/Mondrian")
 
 ## Requirements
 

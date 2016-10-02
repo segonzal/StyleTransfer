@@ -1,3 +1,44 @@
+import uuid
+import argparse
+
+# ==================== CONSTANTS ====================
+
+OUT_IMAGE = str(uuid.uuid4()) + '.jpg'
+
+VGG_MODEL = 'vgg19_normalized.pkl'
+
+IMAGE_SIZE = 512	# Size of the internal handling of the image.
+MAX_EPOCH = 8		# Number of epochs to run the script
+
+NOISE_RATIO = 0.5	# Percentage of weight of the noise for intermixing with the content image.
+ALPHA = 1			# Constant to put more emphasis on CONTENT LOSS.
+BETA = 0.001		# Constant to put more emphasis on STYLE LOSS.
+GAMMA = 0.1e-7		# Constant to put more emphasis on TOTAL VARIATION LOSS.
+
+# ===================================================
+
+parser = argparse.ArgumentParser(description="""
+This is a class project for CC5204 Busqueda por Contenido de Imagenes y Videos (Content-Based Image and Video Retrieval).
+Implementation of "A Neural Algorithm of Artistic Style" by Leon A. Gatys, Alexander S. Ecker, Matthias Bethge.
+""")
+
+parser.add_argument('content_image', type=str, help="The image to transfer the style into.", metavar='content')
+parser.add_argument('style_image',	type=str, help="The image with the style to transfer.", metavar='style')
+
+parser.add_argument('--out',	type=str, help="Path of the generated image. Defaults to a JPG saved on the script folder.", default=OUT_IMAGE, dest='out')
+parser.add_argument('--vgg19',	type=str, help="Path to the VGG model. Default is %s on the script folder." % (VGG_MODEL,), default=VGG_MODEL, dest='vgg19')
+parser.add_argument('--size',	type=int, help="The size of the generated image. Default is %d." % (IMAGE_SIZE,), default=IMAGE_SIZE, dest='size')
+parser.add_argument('--epochs',	type=int, help="Number of iterations. Default is %d." % (MAX_EPOCH,), default=MAX_EPOCH, dest='epochs')
+parser.add_argument('--noise',	type=float, help="Noise percentage of the initial guess. Default is %f." % (NOISE_RATIO,), default=NOISE_RATIO, dest='noise')
+parser.add_argument('--alpha',	type=float, help="Emphasis on content loss. Default is %f." % (ALPHA,), default=ALPHA, dest='alpha')
+parser.add_argument('--beta',	type=float, help="Emphasis on style loss. Default is %f." % (BETA,), default=BETA, dest='beta')
+parser.add_argument('--gamma',	type=float, help="Emphasis on total variation loss. Default is %f." % (GAMMA,), default=GAMMA, dest='gamma')
+
+args = parser.parse_args()
+
+# Parsing the arguments before loading the libraries
+# In case of any error we don't have to wait the slow loading of the heavy GPU-based libraries like Theano or Lasagne
+
 import numpy as np
 import pickle
 
@@ -13,24 +54,8 @@ from skimage.transform import resize
 from skimage.io import imread, imsave
 from scipy.optimize import fmin_l_bfgs_b
 
-import uuid
 from time import clock
 from datetime import timedelta
-
-CONTENT_IMAGE = "sample_images/Tuebingen_Neckarfront.jpg"
-STYLE_IMAGE = "sample_images/mondrian.jpg"
-
-OUT_IMAGE = "docs/"+str(uuid.uuid4()) + '.jpg'
-
-VGG_MODEL = 'vgg19_normalized.pkl'
-
-IMAGE_SIZE = 512	# Size of the internal handling of the image.
-MAX_EPOCH = 8		# Number of epochs to run the script
-
-NOISE_RATIO = 0.5	# Percentage of weight of the noise for intermixing with the content image.
-ALPHA = 1			# Constant to put more emphasis on CONTENT LOSS.
-BETA = 0.001		# Constant to put more emphasis on STYLE LOSS.
-GAMMA = 0.1e-7		# Constant to put more emphasis on TOTAL VARIATION LOSS.
 
 class StyleNet:
 	MEAN_VALUES = np.array([103.939, 116.779, 123.68]).reshape((3, 1, 1))
@@ -43,18 +68,20 @@ class StyleNet:
 		'conv5_1': 4.0e6 
 	}
 
-	def __init__(self):
-		self._image_size = IMAGE_SIZE
-		self._max_epoch = MAX_EPOCH
-		self._noise_ratio = NOISE_RATIO
+	def __init__(self,image_size,max_epoch,noise_ratio,alpha,beta,gamma,vgg):
+		self._image_size = image_size
+		self._max_epoch = max_epoch
+		self._noise_ratio = noise_ratio
 
-		self._alpha = ALPHA
-		self._beta = BETA
-		self._gamma = GAMMA
+		self._alpha = alpha
+		self._beta = beta
+		self._gamma = gamma
+
+		self._vgg = vgg
 
 		self.build()
 
-	def build(self,vgg_model=VGG_MODEL):
+	def build(self):
 		net = {}
 		net['input']   = InputLayer((1, 3, self._image_size, self._image_size))
 		net['conv1_1'] = Conv2DDNNLayer(net['input'],	64, 3, pad=1, flip_filters=False)
@@ -83,7 +110,7 @@ class StyleNet:
 		net['conv5_4'] = Conv2DDNNLayer(net['conv5_3'],	512, 3, pad=1, flip_filters=False)
 		net['pool5']   = Pool2DLayer   (net['conv5_4'],	2, mode='average_exc_pad')
 
-		values = pickle.load(open(VGG_MODEL, 'rb'))['param values']
+		values = pickle.load(open(self._vgg, 'rb'))['param values']
 		lasagne.layers.set_all_param_values(net['pool5'], values)
 
 		self._net = net
@@ -217,10 +244,17 @@ class StyleNet:
 		return self.deprocess_image(x0)
 
 if __name__ == '__main__':
-	content_image = imread(CONTENT_IMAGE, False)
-	style_image = imread(STYLE_IMAGE, False)
+	content_image = imread(args.content_image, False)
+	style_image = imread(args.style_image, False)
 
-	style_transfer = StyleNet()
+	style_transfer = StyleNet(
+		image_size = args.size,
+		max_epoch = args.epochs,
+		noise_ratio = args.noise,
+		alpha = args.alpha,
+		beta = args.beta,
+		gamma = args.gamma,
+		vgg = args.vgg19)
 	img = style_transfer(content_image, style_image)
 
-	imsave(OUT_IMAGE, img)
+	imsave(args.out, img)
