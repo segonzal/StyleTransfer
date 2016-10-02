@@ -14,15 +14,15 @@ You need to download the normalized pretrained weights of the VGG19 network:
 
 ## Gallery
 
-These images were processed by the `style_transfer.py` script. It took around 20 minutes for each image on a NVIDIA GeForce 940M running on Windows.
+These images were processed by the `style_transfer.py` script. It took around 20 minutes for each image running on a computer with an NVIDIA GeForce 940M running on Windows.
 
 <img src="docs/95fd3ae2-c5fe-4b1a-bd10-28cd902911ce.jpg" height="256" alt="Tuebingen/VanGogh">
 <img src="docs/c4447ae5-debc-4922-bf9a-29934cf9bfb9.jpg" height="256" alt="Tuebingen/Seurat">
 <img src="docs/c6385fff-bcc7-4a06-a0b7-c343e9025941.jpg" height="256" alt="Tuebingen/Mondrian">
 
 <img src="docs/7beac151-a96d-4c00-890e-4976e4217901.jpg" height="256" alt="Cat/VanGogh">
-<img src="docs/98e8009f-1443-4298-9dde-829cc9444321.jpg" height="256" alt="Cat/Seurat">
-<img src="docs/31b9a95a-87a5-452d-9900-98360e9dfba1.jpg" height="256" alt="Cat/Mondrian">
+<img src="docs/31b9a95a-87a5-452d-9900-98360e9dfba1.jpg" height="256" alt="Cat/Seurat">
+<img src="docs/98e8009f-1443-4298-9dde-829cc9444321.jpg" height="256" alt="Cat/Mondrian">
 
 ## Requirements
 
